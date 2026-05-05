@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import iniciar,iniciar_sesion, inicio, inicioadmin, registrar_m, registrarse, newProd,addprod,vistamod,eliminarProducto,menuadmin,micadmin,tecladoadmin,mouseAdmin,ramAdmin,graficaAdmin,procesadorAdmin,mostrarTeclado,teclado,mostrarMic,micro,mostrarMouse,mouse,mostrarGrafica,grafica,mostrarRam,ram,mostrarProcesador,procesador,carrito,perfilusuario,edicionProducto,editarProducto, mostrarperfil, modificarPerfil ,agregar_producto,eliminar_producto,restar_producto,limpiar_producto
+from .views import iniciar,iniciar_sesion, inicio, inicioadmin, registrar_m, registrarse, newProd,addprod,vistamod,eliminarProducto,menuadmin,micadmin,tecladoadmin,mouseAdmin,ramAdmin,graficaAdmin,procesadorAdmin,mostrarTeclado,teclado,mostrarMic,micro,mostrarMouse,mouse,mostrarGrafica,grafica,mostrarRam,ram,mostrarProcesador,procesador,carrito,perfilusuario,edicionProducto,editarProducto, mostrarperfil, modificarPerfil ,agregar_producto,eliminar_producto,restar_producto,limpiar_producto,perrito
 from django.conf import settings
 from django.conf.urls.static import static
+import Inicio.views as views
 
 
 urlpatterns = [
@@ -75,5 +76,12 @@ urlpatterns = [
 
     path('edicionProducto/<idProducto>', edicionProducto, name="edicionProducto"),
     path('editarProducto/<idProducto>', editarProducto, name="editarProducto"),
+
+
+    path('pokemon/', views.pokemon),
+    path('perrito/', perrito),
+
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+    

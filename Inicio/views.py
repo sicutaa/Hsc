@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from .models import Usuario,Direccion,Comuna,Region,TipoUsuario, Producto, Marca,Categoria,TipoProd,Marca
 from django.contrib import messages
 from .Carrito import Carrito
-
+import requests
 # Create your views here.
 def inicio(request):
 
@@ -343,6 +343,28 @@ def limpiar_producto(request,usuario):
     carrito.limpiar()
     return render(request,'Inicio/carrito.html',contexto)
 
+
+def pokemon(request):
+    url = "https://pokeapi.co/api/v2/pokemon/pikachu"
+    respuesta = requests.get(url)
+    data = respuesta.json()
+
+    return render(request, 'Inicio/pokemon.html', {
+        'nombre': data['name'],
+        'altura': data['height'],
+        'peso': data['weight']
+    })
+
+
+def perrito(request):
+    import requests             
+    url = "https://dog.ceo/api/breeds/image/random"
+    respuesta = requests.get(url)
+    data = respuesta.json()
+
+    return render(request, 'Inicio/perrito.html', {
+        'imagen': data['message']
+    })
 
 
 
